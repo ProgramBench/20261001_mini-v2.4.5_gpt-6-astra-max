@@ -1,4 +1,4 @@
-# GPT-6 Astra (max) — ProgramBench submission
+# GPT 6 Astra (max) — ProgramBench submission
 
 - **Model:** `gpt-6-astra`, reasoning effort **max**, max 128,000 output tokens per call
 - **Scaffold:** mini-SWE-agent v2.4.5 (single-agent), open source; step limit 1,000, no cost
@@ -15,21 +15,12 @@
 
 All 200 tasks are evaluated and included; every rollout exited `Submitted`.
 
-- `tinycc__tinycc`: earlier attempts ended on provider errors; the included rollout is a fresh
-  re-run (2026-10-06).
-- `bootandy__dust`, `zevv__duc`: the original solution archives were truncated. The solutions
-  were rebuilt by re-running the model's recorded commands, in order and without model calls, in
-  a fresh task container. The trajectories are the original ones. The code is what those
-  commands produce, not the original bytes.
-- `filosottile__age`: the standard evaluator fails on this task when a submission leaves Go or C
-  sources in the workspace, because the hidden test branches build reference tools in place.
-  It was re-evaluated with a fix that removes the submission's Go/C sources after compilation
-  and before the test branches run; the compiled executable is unchanged.
-
 ## Extra stats
 
-Model-call and output-token statistics are generated from the published trajectories by the
-scripts under `_scripts/`.
+Cost, model-call, and output-token statistics are generated from the published trajectories by
+the scripts under `_scripts/`. Cost is mini-SWE-agent's per-task `instance_cost`, priced per
+million tokens at $10 uncached input, $1 cached input, and $50 output for prompts up to 272K
+tokens, and $20 / $2 / $75 above that.
 
 ## Redactions
 
